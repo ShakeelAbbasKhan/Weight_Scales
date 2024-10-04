@@ -1,0 +1,32 @@
+﻿@model Weight_Scales.dto.response.DateRangeViewModel
+
+<h3>Query Data by Date Range</h3>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div style="color:red;">@Model.ErrorMessage</div>
+}
+
+<form method="post" asp-controller="WeightScale" asp-action="getWeightRecord">
+    <div>
+        <label>From Date:</label>
+        <input type="date" name="fromDate" required />
+    </div>
+    <div>
+        <label>To Date:</label>
+        <input type="date" name="toDate" required />
+    </div>
+
+    <button type="submit">Query Data</button>
+</form>
+
+
+@if (!string.IsNullOrEmpty(Model.QueryResult))
+{
+    <div>@Model.QueryResult</div>
+}
+
+<!-- Separate form for disconnecting -->
+<form method="post" asp-action="Disconnect">
+    <button type="submit">Disconnect</button>
+</form>

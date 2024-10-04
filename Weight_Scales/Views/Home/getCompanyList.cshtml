@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Weight_Scales.dto.response.Company>
+
+@{
+    ViewData["Title"] = "Company List";
+}
+
+<h2>Company List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Company ID</th>
+            <th>Company Name</th>
+            <th>Registration No</th>
+            <th>Company Type</th>
+            <th>NTN</th>
+            <th>STRN</th>
+            <th>Short Name</th>
+            <th>Registration Date</th>
+            <th>Logo Path</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var company in Model)
+        {
+            <tr>
+                <td>@company.company_id</td>
+                <td>@company.company_name</td>
+                <td>@company.company_registeration_no</td>
+                <td>@company.company_type_title</td>
+                <td>@company.company_ntn</td>
+                <td>@company.company_strn</td>
+                <td>@company.company_short_name</td>
+                <td>@company.company_registeration_date</td>
+                <td>@company.company_logo_path</td>
+            </tr>
+        }
+    </tbody>
+</table>

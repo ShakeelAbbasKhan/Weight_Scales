@@ -1,0 +1,31 @@
+﻿@model Weight_Scales.dto.response.DBConnectionVM
+
+<h2>Connect to Database</h2>
+
+<form method="post">
+    <div>
+        <label>Instance Name:</label>
+        <input type="text" name="InstanceName" value="@Model.InstanceName" />
+    </div>
+    <div>
+        <label>Username:</label>
+        <input type="text" name="Username" value="@Model.Username" />
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="Password" value="@Model.Password" />
+    </div>
+    <div>
+        <button type="submit">Connect</button>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <p style="color: red">@Model.ErrorMessage</p>
+    }
+
+    @if (Model.IsConnected)
+    {
+        <p style="color: green">Successfully connected to the database.</p>
+    }
+</form>
